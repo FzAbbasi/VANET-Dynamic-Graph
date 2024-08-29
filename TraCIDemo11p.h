@@ -24,7 +24,6 @@ public:
         int vehicleId;
         Coord position; // Use Coord instead of std::string for position
         LAddress::L2Type destination;
-
     };
 
 

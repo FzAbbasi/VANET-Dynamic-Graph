@@ -7,5 +7,5 @@ In this project, a dynamic time-based graph is created. The members of this grap
 ## Getting Started
 
 ### Prerequisites
-- [OMNeT++](https://omnetpp.org/) - A discrete event simulation environment.
-- [Veins](https://veins.car2x.org/) - A framework for vehicular network simulations.
+- [OMNeT++](https://omnetpp.org/) 
+- [Veins](https://veins.car2x.org/) 

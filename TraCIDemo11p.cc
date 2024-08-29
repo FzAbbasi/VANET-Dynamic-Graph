@@ -1,13 +1,10 @@
 
 
-
 #include "veins/modules/application/traci/TraCIDemo11p.h"
 #include "veins/modules/application/traci/TraCIDemo11pMessage_m.h"
 #include "veins/base/utils/SimpleAddress.h"
 #include "veins/modules/messages/TokenMsg_m.h"
 #include "veins/modules/messages/Ack_Msg_m.h"
-
-
 
 
 using namespace veins;
@@ -38,7 +35,6 @@ void TraCIDemo11p::handleSelfMsg(cMessage* msg) {
     }else {
         DemoBaseApplLayer::handleSelfMsg(msg);
     }
-
 }
 
 
@@ -77,7 +73,6 @@ void TraCIDemo11p::onBSM(DemoSafetyMessage* bsm) {
 }
 
 
-
 std::vector<std::pair<Coord, int>> TraCIDemo11p::createGraphSnapshot(int Id, Coord Position) {
     int index =0;
 
@@ -105,8 +100,6 @@ std::vector<std::pair<Coord, int>> TraCIDemo11p::createGraphSnapshot(int Id, Coo
     // Store the current snapshot
     return currentSnapshot;
 }
-
-
 
 
 std::vector<std::pair<int, double>> TraCIDemo11p::calculateDistanceCentrality(const std::vector<std::pair<Coord, int>>& currentsnapshot) {
@@ -146,12 +139,8 @@ std::vector<std::pair<int, double>> TraCIDemo11p::calculateDistanceCentrality(co
                    return a.second > b.second; // Sort by score in descending order
                });
 
-
     return ConnectivityScores;
 }
-
-
-
 
 
 std::vector<std::pair<int, double>> TraCIDemo11p::calculateEfficiency(int Nod_Id,const std::vector<std::pair<int, double>>& ConnectivityScores){
@@ -179,7 +168,6 @@ std::vector<std::pair<int, double>> TraCIDemo11p::calculateEfficiency(int Nod_Id
     }
     return efficiency_vec;
 }
-
 
 
 double TraCIDemo11p::calculateTransmissionRate(int nodeId, int ConnectivityScores_id) {
@@ -274,7 +262,6 @@ void TraCIDemo11p::sendTokensBasedOnEfficiency(const std::vector<std::pair<int, 
            sendToken(singleToken, selectedLinkId); // Send the single token over the selected link
        }
    }
-
 }
 
 
@@ -298,8 +285,6 @@ std::vector<TraCIDemo11p::Token> TraCIDemo11p::createTokens(DemoSafetyMessage* b
 }
 
 
-
-
 int TraCIDemo11p::selectBestLinkForToken(const TraCIDemo11p::Token& token,const std::vector<std::pair<int, double>>& efficiency ) {
 
     for (int i = 0; i < efficiency.size(); ++i) {
@@ -311,7 +296,6 @@ int TraCIDemo11p::selectBestLinkForToken(const TraCIDemo11p::Token& token,const 
     }
     return bestLinkId; // Return the best link ID or -1 if not found
 }
-
 
 
 void TraCIDemo11p::sendToken(TraCIDemo11p::Token token , int id_distination) {
